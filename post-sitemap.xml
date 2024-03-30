@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>http://flamingotiger.github.io/frontend/flutter/flutter-splash-screen/</loc>
+        <lastmod>2024-03-30T11:46:03.791Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://flamingotiger.github.io/frontend/flutter/flutter-build-info/</loc>
         <lastmod>2024-02-16T08:04:17.966Z</lastmod>
         <changefreq>weekly</changefreq>

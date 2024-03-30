@@ -9,8 +9,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>프론트엔드 개발 혹은 공부하면서 기록하는 블로그입니다. TypeScript, React를 주로 선호합니다.</description>
-    <pubDate>Fri, 16 Feb 2024 08:04:17 GMT</pubDate>
+    <pubDate>Sat, 30 Mar 2024 11:46:03 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>flutter splash screen과 app icon 설정</title>
+      <link>http://flamingotiger.github.io/frontend/flutter/flutter-splash-screen/</link>
+      <guid>http://flamingotiger.github.io/frontend/flutter/flutter-splash-screen/</guid>
+      <pubDate>Sat, 23 Dec 2023 07:31:50 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;figure class=&quot;highlight dart&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;
+        
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">flutter pub add flutter_native_splash</span><br><span class="line">flutter pub add flutter_launcher_icons</span><br></pre></td></tr></table></figure><p>패키지를 설치합니다</p><p>AppIcon을 제작할때는 <a href="https://icon.kitchen/i/H4sIAAAAAAAAA6tWKkvMKU0tVrKqVkpJLMoOyUjNTVWySkvMKU6t1VHKzU8pzQHJRisl5qUU5WemKOkoZeYXA8ny1CSl2FoApT8%2BHkAAAAA%3D" rel="external nofollow noopener noreferrer" target="_blank">Kitchen Icon Site</a>를 참고합니다.</p><h2 id="코드-추가"><a href="#코드-추가" class="headerlink" title="코드 추가"></a>코드 추가</h2><p>pubspec.yaml 파일 맨 하단에 다음 코드를 추가해주도록 합니다.<br>다음 경로에 이미지가 있어야합니다.</p><ul><li><code>assets/icons/splash_logo.png</code>: Splash 이미지</li><li><code>assets/icons/app_icon.png</code>: 아이콘 이미지</li></ul><p>무조건 저 경로에 할 필요는 없고, 각 해당 이미지를 불러오는 경로를 작성해주시면 됩니다.</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># flutter_native_splash</span></span><br><span class="line"><span class="comment"># dart run flutter_native_splash:create</span></span><br><span class="line"><span class="attr">flutter_native_splash:</span></span><br><span class="line"><span class="attr">  color:</span> <span class="string">"#000000"</span></span><br><span class="line"><span class="attr">  image:</span> <span class="string">assets/icons/splash_logo.png</span></span><br><span class="line"><span class="attr">  android:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  ios:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># flutter_launcher_icons</span></span><br><span class="line"><span class="comment"># dart run flutter_launcher_icons:main</span></span><br><span class="line"><span class="attr">flutter_launcher_icons:</span></span><br><span class="line"><span class="attr">  android:</span> <span class="string">"launcher_icon"</span></span><br><span class="line"><span class="attr">  ios:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  image_path:</span> <span class="string">"assets/icons/app_icon.png"</span></span><br><span class="line"><span class="attr">  min_sdk_android:</span> <span class="number">21</span> <span class="comment"># android min sdk min:16, default 21</span></span><br><span class="line"><span class="attr">  adaptive_icon_background:</span> <span class="string">"#000000"</span></span><br><span class="line"><span class="attr">  adaptive_icon_foreground:</span> <span class="string">"assets/icons/app_icon.png"</span></span><br></pre></td></tr></table></figure><h2 id="실행"><a href="#실행" class="headerlink" title="실행"></a>실행</h2><p>splash 이미지를 생성할때 프로젝트 루트 경로 터미널에서 다음 스크립트를 실행시켜줍니다.</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">dart</span> <span class="string">run</span> <span class="attr">flutter_native_splash:create</span></span><br></pre></td></tr></table></figure><p>app icon 설정 시에는 다음 스크립트를 실행해줍니다.</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">dart</span> <span class="string">run</span> <span class="attr">flutter_launcher_icons:main</span></span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      <comments>http://flamingotiger.github.io/frontend/flutter/flutter-splash-screen/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>안드로이드 flutter 빌드시 주의사항</title>
@@ -395,26 +415,6 @@
       <content:encoded><![CDATA[<h1 id="시작하기"><a href="#시작하기" class="headerlink" title="시작하기"></a>시작하기</h1><p>리액트 네이티브 초기 설정하는 방법은 다음 링크에서 확인할 수 있습니다.<br><a href="https://flamingotiger.github.io/frontend/ReactNative/react-native-setup/">초기 설정</a><br>초기 설정 방법 대로 했는데 ios에서 에러가 날 경우 해결 방법입니다.</p><p>m1 맥미니, Big sur, node v14.17.0버전에서 테스트를 했습니다.</p><h2 id="ios-에러"><a href="#ios-에러" class="headerlink" title="ios 에러"></a>ios 에러</h2><p>처음에 설치를 하고 <code>npx react-native init MyApp --template react-native-template-typescript</code>명령어를 실행했는데 ios부분에서 에러가 난다면 몇가지 시도를 해볼 수 있습니다.</p><h3 id="rosetta"><a href="#rosetta" class="headerlink" title="rosetta"></a>rosetta</h3><p>로제타를 자주 사용할 것이기 때문에 로제타 터미널을 복제해서 생성합니다.<br><img src="/image/frontend/ReactNative/react-native-install-error-0.png" alt="유틸리티"><br><img src="/image/frontend/ReactNative/react-native-install-error-1.png" alt="정보보기"><br><img src="/image/frontend/ReactNative/react-native-install-error-2.png" alt="설정"></p><h3 id="cocoapods-설치"><a href="#cocoapods-설치" class="headerlink" title="cocoapods 설치"></a>cocoapods 설치</h3><p>코코아팟은 npm과 같이 의존성 관리하는 패키지 입니다.<br>FFI는 Foreign Function Interface의 줄임말로, Ruby-FFI는 다른 언어의 동적 링크 네이티브 라이브러리를 읽어와서 루비 코드로 실행할 수 있게 해주는 라이브러리입니다. 이 라이브러리를 설치하면 빅서 혹은 m1에서 나오는 에러가 해결되는 경우도 있습니다.</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo gem install cocoapods</span><br><span class="line">sudo gem install ffi</span><br></pre></td></tr></table></figure><h3 id="기존-레거시-삭제"><a href="#기존-레거시-삭제" class="headerlink" title="기존 레거시 삭제"></a>기존 레거시 삭제</h3><p>기존 레거시는 삭제 시키고 다시 설치<br>레거시 react-native-cli에서는 해당 템플릿을 사용할 수 없고 새로운 CLI에서만 사용할 수 있다고 한다.<br>기존의 cli를 제거하고 npx를 이용하거나 npx를 이용하고 싶지 않다면 새로운 cli를 전역으로 설치해야 한다. </p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall -g react-native-cli</span><br><span class="line">npm i -g @react-native-community/cli</span><br><span class="line">npx react-native init MyApp --template react-native-template-typescript</span><br></pre></td></tr></table></figure><p>이후에 실행시켜봅니다.</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run ios</span><br></pre></td></tr></table></figure><h3 id="결과"><a href="#결과" class="headerlink" title="결과"></a>결과</h3><p>설치와 실행이 잘 되는 것을 확인 할 수 있습니다.<br><img src="/image/frontend/ReactNative/react-native-install-error-3.png" alt="결과"></p>]]></content:encoded>
       
       <comments>http://flamingotiger.github.io/frontend/ReactNative/react-native-install-error/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>사용중인 포트 프로세스 찾아서 종료시키기</title>
-      <link>http://flamingotiger.github.io/etc/etc/kill-port/</link>
-      <guid>http://flamingotiger.github.io/etc/etc/kill-port/</guid>
-      <pubDate>Mon, 29 Nov 2021 03:51:31 GMT</pubDate>
-      <description>
-      
-        
-        
-          &lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;프로젝트에서 서버를 &lt;code&gt;npm run dev&lt;/code&gt; &lt;code&gt;npm run start&lt;/code&gt;를 통해서 실행
-        
-      
-      </description>
-      
-      
-      <content:encoded><![CDATA[<h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p>프로젝트에서 서버를 <code>npm run dev</code> <code>npm run start</code>를 통해서 실행했을때, 사용하지 않아도 실행되어있는 경우가 있다.<br>일반적으로 8080과 3000을 많이 사용하는데, 실행이 안된다면, 포트 프로세스를 종료시키는 방법을 사용하면 된다.</p><h1 id="해결책"><a href="#해결책" class="headerlink" title="해결책"></a>해결책</h1><p>8080포트가 접속중인지 확인해 본다.</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsof -i tcp:8080</span><br></pre></td></tr></table></figure><p>다음 명령어소 8080포트를 종료시킨다.</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill $(lsof -t -i:8080)</span><br></pre></td></tr></table></figure><p>다른 포트를 확인 및 종료시키고 싶다면 8080부분을 다른 포트로 변경해서 사용하면된다.</p>]]></content:encoded>
-      
-      <comments>http://flamingotiger.github.io/etc/etc/kill-port/#disqus_thread</comments>
     </item>
     
   </channel>
