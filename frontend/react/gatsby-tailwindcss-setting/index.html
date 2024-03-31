@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400&display=swap&subset=korean" rel="stylesheet">
+    
+
+    
+    <title>Gatsby에 Tailwindcss 추가하기 (팁 CLI 방법) | 플타 앞발자의 삽질로그</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="react,tailwindcss,gatsby,cli">
+    
+    <meta name="description" content="설치하기Gatsby 프로젝트에서 tailwindcss 프로젝트를 추가할때 사용하는 방법입니다.추가로 프로젝트마다 tailwindcss를 쉽게 추가할 수 있는 팁도 알려드리겠습니다. 12npm install -D tailwindcss postcss autoprefixer gatsby-plugin-postcssnpx tailwindcss init -p  tai">
+<meta name="keywords" content="react,tailwindcss,gatsby,cli">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gatsby에 Tailwindcss 추가하기 (팁 CLI 방법)">
+<meta property="og:url" content="http://flamingotiger.github.io/frontend/react/gatsby-tailwindcss-setting/index.html">
+<meta property="og:site_name" content="플타 앞발자의 삽질로그">
+<meta property="og:description" content="설치하기Gatsby 프로젝트에서 tailwindcss 프로젝트를 추가할때 사용하는 방법입니다.추가로 프로젝트마다 tailwindcss를 쉽게 추가할 수 있는 팁도 알려드리겠습니다. 12npm install -D tailwindcss postcss autoprefixer gatsby-plugin-postcssnpx tailwindcss init -p  tai">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://flamingotiger.github.io/image/thumb/gatsby-thumb.jpg">
+<meta property="og:updated_time" content="2024-03-31T11:09:13.823Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gatsby에 Tailwindcss 추가하기 (팁 CLI 방법)">
+<meta name="twitter:description" content="설치하기Gatsby 프로젝트에서 tailwindcss 프로젝트를 추가할때 사용하는 방법입니다.추가로 프로젝트마다 tailwindcss를 쉽게 추가할 수 있는 팁도 알려드리겠습니다. 12npm install -D tailwindcss postcss autoprefixer gatsby-plugin-postcssnpx tailwindcss init -p  tai">
+<meta name="twitter:image" content="http://flamingotiger.github.io/image/thumb/gatsby-thumb.jpg">
+    
+    <link rel="canonical" href="http://flamingotiger.github.io/frontend/react/gatsby-tailwindcss-setting/">
+
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-154231351-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+
+
+    
+    <meta name="naver-site-verification" content="96957d99f1626e70d2fa3abb8d32652c7bb2feeb">
+    <script data-ad-client="ca-pub-8152771856955361" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<link rel="alternate" href="/rss2.xml" title="플타 앞발자의 삽질로그" type="application/rss+xml">
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">플타 앞발자의 삽질로그 👷🏼‍️🛠</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Clone/">Clone</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DevTIL/">DevTIL</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DevTIL/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DevTIL/CS/">CS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DevTIL/Study/">Study</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Js-Ts/">Js / Ts</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Js-Ts/javascript/">javascript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Js-Ts/lib/">lib</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Js-Ts/typescript/">typescript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/backend/">backend</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/backend/db/">db</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/backend/devOps/">devOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/backend/node/">node</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/">etc</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/arduino/">arduino</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/etc/">etc</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/google/">google</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/hexo/">hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/rfid/">rfid</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/">frontend</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/DevEnv/">DevEnv</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/ReactNative/">ReactNative</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/Testing/">Testing</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/d3/">d3</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/flutter/">flutter</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/html5/">html5</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/react/">react</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/svg/">svg</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/style/">style</a></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/frontend/">frontend</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/frontend/react/">react</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-frontend/react/gatsby-tailwindcss-setting" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Gatsby에 Tailwindcss 추가하기 (팁 CLI 방법)
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/frontend/react/gatsby-tailwindcss-setting/" class="article-date">
+         <time datetime="2024-01-11T11:00:01.000Z" itemprop="datePublished">2024-01-11</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/cli/">cli</a>, <a class="tag-link" href="/tags/gatsby/">gatsby</a>, <a class="tag-link" href="/tags/react/">react</a>, <a class="tag-link" href="/tags/tailwindcss/">tailwindcss</a>
+    </div>
+
+                
+   <span id="/frontend/react/gatsby-tailwindcss-setting/" class="leancloud-visitors" data-flag-title="Gatsby에 Tailwindcss 추가하기 (팁 CLI 방법)">
+   <i class="fa fa-eye"></i>
+   <span class="post-meta-item-text">Views: </span>
+   <i class="leancloud-visitors-count">498</i>
+   </span>
+
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h2 id="설치하기"><a href="#설치하기" class="headerlink" title="설치하기"></a>설치하기</h2><p>Gatsby 프로젝트에서 tailwindcss 프로젝트를 추가할때 사용하는 방법입니다.<br>추가로 프로젝트마다 tailwindcss를 쉽게 추가할 수 있는 팁도 알려드리겠습니다.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -D tailwindcss postcss autoprefixer gatsby-plugin-postcss</span><br><span class="line">npx tailwindcss init -p</span><br></pre></td></tr></table></figure>
+
+<p>tailwind.config.js 파일수정</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** @type &#123;import('tailwindcss').Config&#125; */</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  content: [</span><br><span class="line">    <span class="string">"./src/pages/**/*.&#123;js,jsx,ts,tsx&#125;"</span>,</span><br><span class="line">    <span class="string">"./src/components/**/*.&#123;js,jsx,ts,tsx&#125;"</span>,</span><br><span class="line">  ],</span><br><span class="line">  theme: &#123;</span><br><span class="line">    extend: &#123;&#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>./src/styles/global.css 파일을 생성합니다</p>
+<p>그리고 다음 내용을 넣어줍니다.</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">tailwind</span> base;</span><br><span class="line">@<span class="keyword">tailwind</span> components;</span><br><span class="line">@<span class="keyword">tailwind</span> utilities;</span><br></pre></td></tr></table></figure>
+
+<p>루트에 gatsby-browser.js 파일 내부에 글로벌 style값을 불러와줍니다.</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'./src/styles/global.css'</span></span><br></pre></td></tr></table></figure>
+
+<p>설정이 완료되었습니다.</p>
+<p>프로젝트를 실행시켜주면 됩니다.</p>
+<h2 id="CLI로-tailwindcss-설정-간편하게-하기-shell"><a href="#CLI로-tailwindcss-설정-간편하게-하기-shell" class="headerlink" title="CLI로 tailwindcss 설정 간편하게 하기(shell)"></a>CLI로 tailwindcss 설정 간편하게 하기(shell)</h2><p>간단하게 tailwindcss를 생성하는 팁입니다.</p>
+<p>프로젝트에서 간편하게 tailwindcss를 추가할 수 있게 쉘을 이용해서 만들어 보겠습니다.</p>
+<p>기본설정에서 추가로 폰트까지 추가 가능하게 작성했습니다.</p>
+<h3 id="파일-생성"><a href="#파일-생성" class="headerlink" title="파일 생성"></a>파일 생성</h3><p>루트에서 <a href="http://setup-twc.sh/" rel="external nofollow noopener noreferrer" target="_blank">setup-twc.sh</a> 파일을 생성해줍니다.</p>
+<p>그리고 src/styles/global.css 파일을 생성해줍니다.</p>
+<h3 id="setup-twc-sh-파일-작성"><a href="#setup-twc-sh-파일-작성" class="headerlink" title="setup-twc.sh 파일 작성"></a>setup-twc.sh 파일 작성</h3><p>쉘을 작성해줄 것 입니다. 프로젝트를 생성할때마다 tailwindcss를 추가하는 방법을 간편하게 사용할 수 있습니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"Tailwind CSS 설치를 시작합니다. 계속하시겠습니까? (y/n)"</span></span><br><span class="line"><span class="built_in">read</span> user_input</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ <span class="string">"<span class="variable">$user_input</span>"</span> = <span class="string">"y"</span> ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"진행 중..."</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment"># 테일윈드 CSS와 필요한 패키지 설치</span></span><br><span class="line">  npm install tailwindcss postcss autoprefixer gatsby-plugin-postcss</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 테일윈드 설정 파일 생성</span></span><br><span class="line">  rm -rf tailwind.config.js</span><br><span class="line">  <span class="comment"># 테일윈드 설정 파일 생성</span></span><br><span class="line">  touch tailwind.config.js</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 테일윈드 설정 파일에 테일윈드 설정 추가</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"/** @type &#123;import('tailwindcss').Config&#125; */</span></span><br><span class="line"><span class="string">module.exports = &#123;</span></span><br><span class="line"><span class="string"> content: [</span></span><br><span class="line"><span class="string">    "</span>./src/pages/**/*.&#123;js,jsx,ts,tsx&#125;<span class="string">",</span></span><br><span class="line"><span class="string">    "</span>./src/components/**/*.&#123;js,jsx,ts,tsx&#125;<span class="string">",</span></span><br><span class="line"><span class="string">  ]</span></span><br><span class="line"><span class="string"> theme: &#123;</span></span><br><span class="line"><span class="string">  extend: &#123;&#125;,</span></span><br><span class="line"><span class="string">  fontFamily: &#123;</span></span><br><span class="line"><span class="string">   Inter: ['Inter', 'sans-serif']</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string"> &#125;,</span></span><br><span class="line"><span class="string"> plugins: []</span></span><br><span class="line"><span class="string">&#125;;"</span> &gt;&gt; ./tailwind.config.js</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 테일윈드 CSS 파일 삭제</span></span><br><span class="line">  rm -rf ./src/styles/global.css</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 테일윈드 CSS 파일 생성</span></span><br><span class="line">  touch ./src/styles/global.css</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 테일윈드 CSS 파일에 테일윈드 CSS import</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"/* global.css */"</span> &gt;&gt; ./src/styles/global.css</span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&amp;display=swap');"</span> &gt;&gt; ./src/styles/global.css</span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"@tailwind base;"</span> &gt;&gt; ./src/styles/global.css</span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"@tailwind components;"</span> &gt;&gt; ./src/styles/global.css</span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"@tailwind utilities;"</span> &gt;&gt; ./src/styles/global.css</span><br><span class="line"></span><br><span class="line">  <span class="comment"># PostCSS 파일 삭제</span></span><br><span class="line">  rm -rf postcss.config.js</span><br><span class="line"></span><br><span class="line">  <span class="comment"># PostCSS 파일 생성</span></span><br><span class="line">  touch postcss.config.js</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 테일윈드 CSS 파일을 PostCSS가 처리할 수 있도록 설정</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"module.exports = &#123;</span></span><br><span class="line"><span class="string"> plugins: [require('tailwindcss'), require('autoprefixer')]</span></span><br><span class="line"><span class="string">&#125;;"</span> &gt;&gt; ./postcss.config.js</span><br><span class="line"></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"설치가 완료되었습니다!"</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"설치가 취소되었습니다."</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"`gatsby-plugin-postcss`가 추가되었는지 확인해주세요"</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"`src/styles`경로에 `global.css`를 생성했는지 확인해주세요"</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+
+<p>쉘을 읽어보시고 필요한 부분은 사용하고 폰트라던가 수정해야할 부분이 있다면 수정해서 사용하면 됩니다.</p>
+<h3 id="스크립트-작성"><a href="#스크립트-작성" class="headerlink" title="스크립트 작성"></a>스크립트 작성</h3><p>package.json 파일내부에 scripts부분에서</p>
+<p>twc 스크립트를 작성해줍니다.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">"scripts": &#123;</span><br><span class="line">    "build": "gatsby build",</span><br><span class="line">    "develop": "gatsby develop",</span><br><span class="line">  //...</span><br><span class="line">    "twc": "sh setup-twc.sh"</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="스크립트-실행"><a href="#스크립트-실행" class="headerlink" title="스크립트 실행"></a>스크립트 실행</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run twc</span><br></pre></td></tr></table></figure>
+
+<p>스크립트를 실행하고 y를 입력후 엔터를 누르면 tailwindcss가 프로젝트에 추가됩니다.</p>
+<p>프로젝트를 생성하고 매번 docs를 찾아서 하나씩 추가를 할 필요없이 간단한 쉘, 구조, 파일 정도만 살짝 손봐주면 스크립트로 설치, 폰트 설정이 한번에 완료됩니다.</p>
+<p>쉘부분의 경우 다른 방법으로 응용해서 사용가능합니다.</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://flamingotiger.github.io/frontend/react/gatsby-tailwindcss-setting/" data-id="clufev7zh009s7vtm19qkeko6" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Hong Hakbeom"
+        },
+        "headline": "Gatsby에 Tailwindcss 추가하기 (팁 CLI 방법)",
+        "image": "http://flamingotiger.github.io/image/thumb/gatsby-thumb.jpg",
+        "keywords": "react tailwindcss gatsby cli",
+        "genre": "frontend react",
+        "datePublished": "2024-01-11",
+        "dateCreated": "2024-01-11",
+        "dateModified": "2024-03-31",
+        "url": "http://flamingotiger.github.io/frontend/react/gatsby-tailwindcss-setting/",
+        "description": "설치하기Gatsby 프로젝트에서 tailwindcss 프로젝트를 추가할때 사용하는 방법입니다.추가로 프로젝트마다 tailwindcss를 쉽게 추가할 수 있는 팁도 알려드리겠습니다.
+12npm install -D tailwindcss postcss autoprefixer gatsby-plugin-postcssnpx tailwindcss init -p
+
+tai",
+        "wordCount": 710
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        <script src="https://utteranc.es/client.js" repo="flamingotiger/blog-comments" issue-term="[ENTER TERM HERE]" theme="github-dark" crossorigin="anonymous" async>
+</script>            
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                    <li>
+                        <a class="social-tooltip" title="envelope" href="mailto:hhbhong@gmail.com" target="_blank" rel="external nofollow noopener noreferrer">
+                            <i class="icon fa fa-envelope"></i>
+                        </a>
+                    </li>
+                
+            
+                
+                    <li>
+                        <a class="social-tooltip" title="share-alt-square" href="https://stackshare.io/flamingotiger/my-stack" target="_blank" rel="external nofollow noopener noreferrer">
+                            <i class="icon fa fa-share-alt-square"></i>
+                        </a>
+                    </li>
+                
+            
+                
+                    <li>
+                        <a class="social-tooltip" title="linkedin" href="https://www.linkedin.com/in/hakbum-hong-ab420a196/" target="_blank" rel="external nofollow noopener noreferrer">
+                            <i class="icon fa fa-linkedin"></i>
+                        </a>
+                    </li>
+                
+            
+                
+                    <li>
+                        <a class="social-tooltip" title="github" href="https://github.com/flamingotiger" target="_blank" rel="external nofollow noopener noreferrer">
+                            <i class="icon fa fa-github"></i>
+                        </a>
+                    </li>
+                
+            
+        </ul>
+    </div>
+    <div id="theme-mode-change">
+        <div class="icon-flex">
+            <div class="mode-icon">
+                <i class="fa fa-moon-o"></i>
+            </div>
+            <label class="switch">
+                <input id="mode-switch" type="checkbox">
+                <span class="slider round"></span>
+            </label>
+            <div class="mode-icon">
+                <i class="fa fa-sun-o"></i>
+            </div>
+        </div>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/frontend/flutter/flutter-local-notification/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">flutter local notification 사용하기</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/frontend/react/gatsby-tailwindcss-setting/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/image/thumb/gatsby-thumb.jpg)" alt="Gatsby에 Tailwindcss 추가하기 (팁 CLI 방법)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/frontend/">frontend</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/frontend/react/">react</a></p>
+                            <p class="item-title"><a href="/frontend/react/gatsby-tailwindcss-setting/" class="title">Gatsby에 Tailwindcss 추가하기 (팁 CLI 방법)</a></p>
+                            <p class="item-date"><time datetime="2024-01-11T11:00:01.000Z" itemprop="datePublished">2024-01-11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/frontend/flutter/flutter-local-notification/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/image/thumb/flutter-thumb.jpg)" alt="flutter local notification 사용하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/frontend/">frontend</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/frontend/flutter/">flutter</a></p>
+                            <p class="item-title"><a href="/frontend/flutter/flutter-local-notification/" class="title">flutter local notification 사용하기</a></p>
+                            <p class="item-date"><time datetime="2023-12-26T07:31:50.000Z" itemprop="datePublished">2023-12-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/frontend/flutter/flutter-splash-screen/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/image/thumb/flutter-thumb.jpg)" alt="flutter splash screen과 app icon 설정" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/frontend/">frontend</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/frontend/flutter/">flutter</a></p>
+                            <p class="item-title"><a href="/frontend/flutter/flutter-splash-screen/" class="title">flutter splash screen과 app icon 설정</a></p>
+                            <p class="item-date"><time datetime="2023-12-23T07:31:50.000Z" itemprop="datePublished">2023-12-23</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/frontend/flutter/flutter-build-info/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/image/thumb/flutter-thumb.jpg)" alt="안드로이드 flutter 빌드시 주의사항" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/frontend/">frontend</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/frontend/flutter/">flutter</a></p>
+                            <p class="item-title"><a href="/frontend/flutter/flutter-build-info/" class="title">안드로이드 flutter 빌드시 주의사항</a></p>
+                            <p class="item-date"><time datetime="2023-12-22T07:57:06.000Z" itemprop="datePublished">2023-12-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/frontend/flutter/flutter-firebase-analytics/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/image/thumb/flutter-thumb.jpg)" alt="flutter에서 firebase analytics 추가할때 에러수정" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/frontend/">frontend</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/frontend/flutter/">flutter</a></p>
+                            <p class="item-title"><a href="/frontend/flutter/flutter-firebase-analytics/" class="title">flutter에서 firebase analytics 추가할때 에러수정</a></p>
+                            <p class="item-date"><time datetime="2023-12-20T07:31:50.000Z" itemprop="datePublished">2023-12-20</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2024 Hong Hakbeom</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+
