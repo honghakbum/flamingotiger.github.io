@@ -9,8 +9,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>프론트엔드 개발 혹은 공부하면서 기록하는 블로그입니다. TypeScript, React를 주로 선호합니다.</description>
-    <pubDate>Sun, 31 Mar 2024 11:09:13 GMT</pubDate>
+    <pubDate>Tue, 02 Apr 2024 13:35:03 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Firebase Cloud Messaging(FCM) 설정</title>
+      <link>http://flamingotiger.github.io/etc/etc/firebase-cloud-messaging/</link>
+      <guid>http://flamingotiger.github.io/etc/etc/firebase-cloud-messaging/</guid>
+      <pubDate>Mon, 26 Feb 2024 13:02:24 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;p&gt;프로젝트 설정 &amp;gt; p.12인증서 내보내기 &amp;gt; APNs키발급 &amp;gt; firebase 업로드&lt;br&gt;&lt;a href=&quot;https://firebase.google.com/docs/cloud-messaging/flutter/client?hl=k
+        
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<p>프로젝트 설정 &gt; p.12인증서 내보내기 &gt; APNs키발급 &gt; firebase 업로드<br><a href="https://firebase.google.com/docs/cloud-messaging/flutter/client?hl=ko" rel="external nofollow noopener noreferrer" target="_blank">firebase docs</a>에서 참고할 수 있습니다.</p><h2 id="IOS-설정"><a href="#IOS-설정" class="headerlink" title="IOS 설정"></a>IOS 설정</h2><p><a href="https://developer.apple.com/account/resources/identifiers/list" rel="external nofollow noopener noreferrer" target="_blank">인증서 설정</a></p><ol><li>Xcode 프로젝트 작업공간(<code>ios/Runner.xcworkspace</code>)을 엽니다.</li><li><a href="https://help.apple.com/xcode/mac/current/#/devdfd3d04a1" rel="external nofollow noopener noreferrer" target="_blank">푸시 알림을 사용 설정합니다</a>.</li><li><strong>백그라운드 가져오기</strong> 및 <strong>원격 알림</strong> <a href="https://developer.apple.com/documentation/xcode/configuring-background-execution-modes" rel="external nofollow noopener noreferrer" target="_blank">백그라운드 실행 모드</a>를 사용 설정합니다.(push, background 설정)</li></ol><p><img src="/image/etc/etc/firebase-cloud-messaging-0.png" alt="push notification"></p><h3 id="APN-인증-키-업로드"><a href="#APN-인증-키-업로드" class="headerlink" title="APN 인증 키 업로드"></a>APN 인증 키 업로드</h3><p>FCM을 사용하기 전에 Firebase에 APN 인증서를 업로드합니다. 아직 APN 인증서가 없으면 <a href="https://developer.apple.com/membercenter/index.action" rel="external nofollow noopener noreferrer" target="_blank">Apple Developer Member Center</a>에서 만듭니다.</p><ol><li>Firebase Console 프로젝트 내에서 톱니바퀴 아이콘을 선택하고 <strong>프로젝트 설정</strong>을 선택한 다음 <strong>클라우드 메시징</strong> 탭을 선택합니다.</li><li>개발 인증서, 프로덕션 인증서 또는 둘 다에 <strong>인증서 업로드</strong> 버튼을 선택합니다. 최소 하나 이상이 필요합니다.</li><li>각 인증서에 대해 .p12 파일을 선택하고 필요하다면 비밀번호를 입력합니다. 이 인증서의 번들 ID가 앱의 번들 ID와 일치해야 합니다. <strong>저장</strong>을 선택합니다.</li></ol><p><img src="/image/etc/etc/firebase-cloud-messaging-1.png" alt="SSL"></p><p><img src="/image/etc/etc/firebase-cloud-messaging-2.png" alt="Certificates, Identifiers &amp; Profiles"></p><p>앱 인증서 파일을 첨부합니다.</p><p>CertificateSigningRequest.certSigningRequest<br>이런이름 종류의 파일이름입니다.</p><p><img src="/image/etc/etc/firebase-cloud-messaging-3.png" alt="Download"></p><h3 id="다운로드-받고-키체인에서-개인-정보-교환-부분이-선택안될때"><a href="#다운로드-받고-키체인에서-개인-정보-교환-부분이-선택안될때" class="headerlink" title="다운로드 받고 키체인에서 개인 정보 교환 부분이 선택안될때"></a>다운로드 받고 키체인에서 개인 정보 교환 부분이 선택안될때</h3><p><img src="/image/etc/etc/firebase-cloud-messaging-4.png" alt="Error"></p><p>이렇게 인증서 신뢰하지 않음 시에는 항상 신뢰로 변경해줍니다.</p><p>로그인 탭 &gt; 내인증서에서만 가능합니다.</p><p>안될때는 키체인 껐다켜고 다시 들어가봅니다.</p><p><img src="/image/etc/etc/firebase-cloud-messaging-5.png" alt="재시도"></p><p><img src="/image/etc/etc/firebase-cloud-messaging-6.png" alt="암호입력"></p><h2 id="APNs키-발급받기"><a href="#APNs키-발급받기" class="headerlink" title="APNs키 발급받기"></a>APNs키 발급받기</h2><p><img src="/image/etc/etc/firebase-cloud-messaging-7.png" alt="키 생성"></p><p><img src="/image/etc/etc/firebase-cloud-messaging-8.png" alt="생성중"></p><p><img src="/image/etc/etc/firebase-cloud-messaging-9.png" alt="생성완료"></p><p>페이지에서 벗어나면 재설치가 안되기 때문에 관리를 잘해야합니다.</p><h2 id="firebase에-APNs-업로드"><a href="#firebase에-APNs-업로드" class="headerlink" title="firebase에 APNs 업로드"></a>firebase에 APNs 업로드</h2><p>홈에서 ios 톱니바퀴를 클릭하고 클라우드 메시징으로 접속합니다.</p><p><img src="/image/etc/etc/firebase-cloud-messaging-10.png" alt="firebase 설정"></p><p><img src="/image/etc/etc/firebase-cloud-messaging-11.png" alt="firebase 설정 - 인증 키 업로드"></p><p><img src="/image/etc/etc/firebase-cloud-messaging-12.png" alt="키ID"></p><p>키 아이디는 이전에 생성했던 키에서 가져옵니다.</p><p><a href="https://developer.apple.com/account/resources/authkeys/list" rel="external nofollow noopener noreferrer" target="_blank">apple developer list</a></p><p><img src="/image/etc/etc/firebase-cloud-messaging-13.png" alt="멤버쉽 디테일"></p><p>멤버쉽에서 팀 아이디를 가져와줍니다.</p><p><a href="https://developer.apple.com/account#MembershipDetailsCard" rel="external nofollow noopener noreferrer" target="_blank">멤버쉽</a></p><p>이렇게 하면 FCM 기본 설정이 된것입니다. 많이 복잡할 수 있지만 하나씩 차근차근 진행하면 쉽게 할 수 있습니다.</p>]]></content:encoded>
+      
+      <comments>http://flamingotiger.github.io/etc/etc/firebase-cloud-messaging/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Gatsby에 Tailwindcss 추가하기 (팁 CLI 방법)</title>
@@ -394,27 +414,6 @@
       <content:encoded><![CDATA[<h1 id="시작하기"><a href="#시작하기" class="headerlink" title="시작하기"></a>시작하기</h1><p>아이폰에서 시뮬레이션하기 위해서 빌드하기 버튼을 클릭했는데, <code>xcode doesn&#39;t support project&#39;s IOS 15.1(19B74)</code>라는 에러가 발생했습니다.</p><p><img src="/image/frontend/ReactNative/react-native-ios-build-version-error-0.png" alt="오류 메세지"></p><p>이것은 xcode가 아이폰의 소프트웨어 버전인 15.1을 호환하지 않는다는 이야기 입니다.<br>그렇다면 xcode를 설치해야겠죠?<br>아이폰의 최신버전 15.0 이상에서 빌드를 하기 위해서는 Xcode 13 버전이 필요합니다.<br><img src="/image/frontend/ReactNative/react-native-ios-build-version-error-3.png" alt="version"><br><img src="/image/frontend/ReactNative/react-native-ios-build-version-error-4.png" alt="version"></p><p><img src="/image/frontend/ReactNative/react-native-ios-build-version-error-1.png" alt="app store"></p><p>xcode를 업데이트 하려면 mac버전도 업데이트 해야합니다. (현재 Big Sur)<br>Mac bigsur버전이라면 xcode13버전을 설치할 수 없기 때문에 mac을 monterey버전으로 업데이트 해주어야 합니다.</p><p><img src="/image/frontend/ReactNative/react-native-ios-build-version-error-2.png" alt="mac version update"></p><p>xcode13버전은 Appstore에서 설치 및 업데이트 할 수 있습니다.</p><h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><ol><li>Mac이 monterey버전으로 업데이트 해야한다.</li><li>xcode가 13버전 이상으로 업데이트 되어야한다.</li></ol><p>현재 아이폰의 버전이 14버전이면 xcode를 13버전으로 업데이트 하지 않아도 에러가 나오지 않습니다.</p>]]></content:encoded>
       
       <comments>http://flamingotiger.github.io/frontend/ReactNative/react-native-ios-build-version-error/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>React native 아이폰에 빌드해서 테스트하기</title>
-      <link>http://flamingotiger.github.io/frontend/ReactNative/react-native-ios-build/</link>
-      <guid>http://flamingotiger.github.io/frontend/ReactNative/react-native-ios-build/</guid>
-      <pubDate>Thu, 13 Jan 2022 05:51:16 GMT</pubDate>
-      <description>
-      
-        
-        
-          &lt;h1 id=&quot;환경설정&quot;&gt;&lt;a href=&quot;#환경설정&quot; class=&quot;headerlink&quot; title=&quot;환경설정&quot;&gt;&lt;/a&gt;환경설정&lt;/h1&gt;&lt;p&gt;시뮬레이터가 아니라 카메라나 실제로 아이폰에 옮겨서 테스트를 해보기 위한 방법입니다.&lt;/p&gt;
-&lt;h2 id=&quot;애플
-        
-      
-      </description>
-      
-      
-      <content:encoded><![CDATA[<h1 id="환경설정"><a href="#환경설정" class="headerlink" title="환경설정"></a>환경설정</h1><p>시뮬레이터가 아니라 카메라나 실제로 아이폰에 옮겨서 테스트를 해보기 위한 방법입니다.</p><h2 id="애플-계정등록"><a href="#애플-계정등록" class="headerlink" title="애플 계정등록"></a>애플 계정등록</h2><p>이전에는 애플 개발자 계정으로만 가능했었는데, 현재는 일반 애플 사용자 계정으로 로그인을 해서 빌드 할 수 있게 되었습니다.<br><img src="/image/frontend/ReactNative/react-native-ios-build-0.png" alt="preferences"></p><p><img src="/image/frontend/ReactNative/react-native-ios-build-1.png" alt="accounts 탭"></p><p>accounts에 들어가서 애플 계정을 추가해줍니다.</p><p>이후 프로젝트가 열려있는 Xcode에 들어가서 targets &gt; 내프로그램명 &gt; Signing &amp; Capabilities 탭을 선택합니다.</p><p><img src="/image/frontend/ReactNative/react-native-ios-build-2.png" alt="Signing &amp; Capabilities 탭"></p><p>그리고 signing부분의 team에서 아까 추가한 애플계정을 선택합니다.</p><p><img src="/image/frontend/ReactNative/react-native-ios-build-3.png" alt="team"></p><h1 id="빌드하기"><a href="#빌드하기" class="headerlink" title="빌드하기"></a>빌드하기</h1><p>아이폰이 맥에 연결된 상태에서 시뮬레이터로 설정된것을 내 아이폰으로 설정하고 왼쪽 상단에 플레이 버튼을 누릅니다.<br>에러가 나지 않는다면 정상적으로 아이폰에 설치됩니다.</p><p>xcode doesn’t support 에러가 나오면서 빌드가 안되면,<a href="https://flamingotiger.github.io/frontend/ReactNative/react-native-ios-build-version-error/">xcode doesn’t support 에러시 해결</a>을 참고 해주세요.</p><p>아이폰에서 신뢰할 수 없는 개발자라는 팝업이 나오면, 다음 경로에서 신뢰 버튼을 클릭해주어야 합니다.</p><p><code>설정 &gt; 일반 &gt; VPN 및 기기관리 &gt; 개발자이메일 &gt; 해당하는 프로젝트 &gt; 신뢰</code><br><img src="/image/frontend/ReactNative/react-native-ios-build-4.png" alt="vpn 및 기기 관리"></p><p>이후 앱을 실행하면 잘 작동하게 됩니다.<br><img src="/image/frontend/ReactNative/react-native-ios-build-5.png" alt="어플 작동 화면"></p>]]></content:encoded>
-      
-      <comments>http://flamingotiger.github.io/frontend/ReactNative/react-native-ios-build/#disqus_thread</comments>
     </item>
     
   </channel>
