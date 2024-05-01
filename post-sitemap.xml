@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>http://flamingotiger.github.io/frontend/react/gatsby-add-sanity/</loc>
+        <lastmod>2024-05-01T07:49:28.821Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://flamingotiger.github.io/etc/etc/firebase-cloud-messaging/</loc>
         <lastmod>2024-04-02T13:35:03.879Z</lastmod>
         <changefreq>weekly</changefreq>
