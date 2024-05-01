@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400&display=swap&subset=korean" rel="stylesheet">
+    
+
+    
+    <title>Vite 사용해보기 | 플타 앞발자의 삽질로그</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="javascript,vite,rust,swr">
+    
+    <meta name="description" content="Vite란 무엇인가?Vite는 번들러 기반의 도구들의 성능 문제를 해결하고자 개발되었습니다. 전통적인 번들러들이 프로젝트의 모든 파일을 빌드하는 데 필요한 시간 때문에 개발자의 생산성을 저하시키는 문제를 가지고 있었는데, Vite는 몇 가지 핵심 기능을 통해 이를 개선했습니다. Vite의 사용해야하는 이유공식홈페이지공식 홈페이지에 자세하게 나와있습니다.요약">
+<meta name="keywords" content="javascript,vite,rust,swr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vite 사용해보기">
+<meta property="og:url" content="http://flamingotiger.github.io/frontend/vite/vite/index.html">
+<meta property="og:site_name" content="플타 앞발자의 삽질로그">
+<meta property="og:description" content="Vite란 무엇인가?Vite는 번들러 기반의 도구들의 성능 문제를 해결하고자 개발되었습니다. 전통적인 번들러들이 프로젝트의 모든 파일을 빌드하는 데 필요한 시간 때문에 개발자의 생산성을 저하시키는 문제를 가지고 있었는데, Vite는 몇 가지 핵심 기능을 통해 이를 개선했습니다. Vite의 사용해야하는 이유공식홈페이지공식 홈페이지에 자세하게 나와있습니다.요약">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://flamingotiger.github.io/image/thumb/vite-thumb.jpg">
+<meta property="og:updated_time" content="2024-05-01T10:08:55.602Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vite 사용해보기">
+<meta name="twitter:description" content="Vite란 무엇인가?Vite는 번들러 기반의 도구들의 성능 문제를 해결하고자 개발되었습니다. 전통적인 번들러들이 프로젝트의 모든 파일을 빌드하는 데 필요한 시간 때문에 개발자의 생산성을 저하시키는 문제를 가지고 있었는데, Vite는 몇 가지 핵심 기능을 통해 이를 개선했습니다. Vite의 사용해야하는 이유공식홈페이지공식 홈페이지에 자세하게 나와있습니다.요약">
+<meta name="twitter:image" content="http://flamingotiger.github.io/image/thumb/vite-thumb.jpg">
+    
+    <link rel="canonical" href="http://flamingotiger.github.io/frontend/vite/vite/">
+
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-154231351-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+
+
+    
+    <meta name="naver-site-verification" content="96957d99f1626e70d2fa3abb8d32652c7bb2feeb">
+    <script data-ad-client="ca-pub-8152771856955361" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<link rel="alternate" href="/rss2.xml" title="플타 앞발자의 삽질로그" type="application/rss+xml">
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">플타 앞발자의 삽질로그 👷🏼‍️🛠</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Clone/">Clone</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DevTIL/">DevTIL</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DevTIL/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DevTIL/CS/">CS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DevTIL/Study/">Study</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Js-Ts/">Js / Ts</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Js-Ts/javascript/">javascript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Js-Ts/lib/">lib</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Js-Ts/typescript/">typescript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/backend/">backend</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/backend/db/">db</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/backend/devOps/">devOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/backend/node/">node</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/">etc</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/arduino/">arduino</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/etc/">etc</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/google/">google</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/hexo/">hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/rfid/">rfid</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/">frontend</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/DevEnv/">DevEnv</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/ReactNative/">ReactNative</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/Testing/">Testing</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/d3/">d3</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/flutter/">flutter</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/html5/">html5</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/react/">react</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/svg/">svg</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/vite/">vite</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/style/">style</a></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/frontend/">frontend</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/frontend/vite/">vite</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-frontend/vite/vite" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Vite 사용해보기
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/frontend/vite/vite/" class="article-date">
+         <time datetime="2024-05-01T10:03:55.000Z" itemprop="datePublished">2024-05-01</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/javascript/">javascript</a>, <a class="tag-link" href="/tags/rust/">rust</a>, <a class="tag-link" href="/tags/swr/">swr</a>, <a class="tag-link" href="/tags/vite/">vite</a>
+    </div>
+
+                
+   <span id="/frontend/vite/vite/" class="leancloud-visitors" data-flag-title="Vite 사용해보기">
+   <i class="fa fa-eye"></i>
+   <span class="post-meta-item-text">Views: </span>
+   <i class="leancloud-visitors-count">396</i>
+   </span>
+
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h1 id="Vite란-무엇인가"><a href="#Vite란-무엇인가" class="headerlink" title="Vite란 무엇인가?"></a>Vite란 무엇인가?</h1><p>Vite는 번들러 기반의 도구들의 성능 문제를 해결하고자 개발되었습니다. 전통적인 번들러들이 프로젝트의 모든 파일을 빌드하는 데 필요한 시간 때문에 개발자의 생산성을 저하시키는 문제를 가지고 있었는데, Vite는 몇 가지 핵심 기능을 통해 이를 개선했습니다.</p>
+<h2 id="Vite의-사용해야하는-이유"><a href="#Vite의-사용해야하는-이유" class="headerlink" title="Vite의 사용해야하는 이유"></a>Vite의 사용해야하는 이유</h2><p><a href="https://ko.vitejs.dev/guide/why" rel="external nofollow noopener noreferrer" target="_blank">공식홈페이지</a><br>공식 홈페이지에 자세하게 나와있습니다.<br>요약을 하자면</p>
+<ul>
+<li><code>Native ESM 지원</code>: Vite는 브라우저가 지원하는 <code>ES Modules</code>을 활용하여, 필요할 때 필요한 모듈만을 불러와 처리합니다. 이는 불필요한 모든 모듈의 로드와 번들링을 피하며, 개발 서버의 응답 시간을 개선합니다.</li>
+<li><code>사전 번들링</code>: Vite는 변경이 거의 없는 외부 라이브러리나 종속성들을 사전에 번들링하여 로딩 시간을 단축시킵니다. 이 과정에서 Go 언어로 작성된 <code>Esbuild</code>를 사용하여, 기존 번들러들보다 훨씬 빠른 속도를 제공합니다.</li>
+<li><code>HMR(Hot Module Replacement) 지원</code>: Vite는 HMR을 통해 수정된 모듈만을 빠르게 교체하고 새로고침 없이 변경 사항을 반영할 수 있습니다. 이는 개발 시간을 단축하고 피드백 루프를 빠르게 만듭니다.</li>
+<li><code>효율적인 캐싱과 로딩</code>: Vite는 HTTP 헤더를 활용해 페이지 로딩 속도를 높이며, 필요한 코드만을 로드하도록 관리합니다.</li>
+</ul>
+<h3 id="추가설명"><a href="#추가설명" class="headerlink" title="추가설명"></a>추가설명</h3><ul>
+<li>Esbuild: Go 언어로 작성됨 / 코드 파싱, 출력과 소스맵 생성을 모두 병렬로 처리함 / 불필요한 데이터 변환과 할당 없음</li>
+<li>ES Modules: ES6에 도입된 모듈 시스템 / import, export를 사용해 분리된 자바스크립트 파일끼리 서로 접근할 수 있음</li>
+</ul>
+<h1 id="Vite-사용해보기"><a href="#Vite-사용해보기" class="headerlink" title="Vite 사용해보기"></a>Vite 사용해보기</h1><p>프로젝트 생성</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm create vite@latest</span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/frontend/vite/vite-0.png" alt="생성"></p>
+<p>이후에는 프롬프트 창에 출력된 메시지를 선택해서 enter를 누르면 됩니다.<br>이름 및 각자 플러그인을 선택해주는 것입니다. FE프레임워크 및 js, ts인 것을 알겠는데, SWR는 무엇일까요?</p>
+<h2 id="SWR은-무엇인가"><a href="#SWR은-무엇인가" class="headerlink" title="SWR은 무엇인가?"></a>SWR은 무엇인가?</h2><p><a href="https://ko.vitejs.dev/plugins/" rel="external nofollow noopener noreferrer" target="_blank">plugin 설명 사이트</a></p>
+<p>개발 중에는 Babel 대신 SWC를 사용합니다.<br>빌드 중 플러그인을 사용하게 된다면 SWC + esbuild를 사용하고,<br>그렇지 않다면 esbuild만을 사용합니다.<br>비표준 React 확장이 필요하지 않은 대규모 프로젝트의 경우, 콜드 스타트와 Hot Module Replacement(HMR)이 훨씬 빠르게 작동할 수 있습니다.</p>
+<h2 id="실행"><a href="#실행" class="headerlink" title="실행"></a>실행</h2><p>실행은 정말로 간단합니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/frontend/vite/vite-1.png" alt="실행"></p>
+<h2 id="빌드"><a href="#빌드" class="headerlink" title="빌드"></a>빌드</h2><p>빌드도 마찬가지로 간단하게 커맨드를 실행 시켜주면 됩니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run build</span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/frontend/vite/vite-2.png" alt="실행"></p>
+<h2 id="awesome-vite"><a href="#awesome-vite" class="headerlink" title="awesome-vite"></a>awesome-vite</h2><p><a href="https://github.com/vitejs/awesome-vite" rel="external nofollow noopener noreferrer" target="_blank">awesome-vite</a>는 다양한 예시와 플러그인 등을 모아놓은 사이트입니다. 예시 프로젝트들을 참고해서 프로젝트를 손쉽게 시작할 수 있습니다.</p>
+<h2 id="performance"><a href="#performance" class="headerlink" title="performance"></a>performance</h2><p><a href="https://ko.vitejs.dev/guide/performance.html" rel="external nofollow noopener noreferrer" target="_blank">공식 홈페이지의 퍼포먼스</a>부분은 코드를 작성할 때 성능 향상에 도움이 되는 부분입니다.</p>
+<p>간단한 예시를 보자면 <code>식별 작업 줄이기</code><br>import 할때 <code>import &#39;./Component&#39;</code> 이렇게 하기보다 <code>import &#39;./Component.tsx&#39;</code>처럼 확장자까지 해주는 것이 좋다고 합니다.</p>
+<ol>
+<li>./Component가 존재하는지 확인, 없음</li>
+<li>./Component.mjs가 존재하는지 확인, 없음</li>
+<li>./Component.js가 존재하는지 확인, 없음</li>
+<li>./Component.mts가 존재하는지 확인, 없음</li>
+<li>./Component.ts가 존재하는지 확인, 없음</li>
+<li>./Component.jsx가 존재하는지 확인, 있음!</li>
+</ol>
+<p>이같이 임포트 경로를 식별하기 위해 총 6번의 파일 시스템 작업이 필요합니다. 즉, 암시적인 임포트가 많아질수록 경로를 식별하는 데 더 많은 시간이 필요하게 됩니다.</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://flamingotiger.github.io/frontend/vite/vite/" data-id="clvnno9p6006mhbtm9dpbuc0o" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Hong Hakbeom"
+        },
+        "headline": "Vite 사용해보기",
+        "image": "http://flamingotiger.github.io/image/thumb/vite-thumb.jpg",
+        "keywords": "javascript vite rust swr",
+        "genre": "frontend vite",
+        "datePublished": "2024-05-01",
+        "dateCreated": "2024-05-01",
+        "dateModified": "2024-05-01",
+        "url": "http://flamingotiger.github.io/frontend/vite/vite/",
+        "description": "Vite란 무엇인가?Vite는 번들러 기반의 도구들의 성능 문제를 해결하고자 개발되었습니다. 전통적인 번들러들이 프로젝트의 모든 파일을 빌드하는 데 필요한 시간 때문에 개발자의 생산성을 저하시키는 문제를 가지고 있었는데, Vite는 몇 가지 핵심 기능을 통해 이를 개선했습니다.
+Vite의 사용해야하는 이유공식홈페이지공식 홈페이지에 자세하게 나와있습니다.요약",
+        "wordCount": 407
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        <script src="https://utteranc.es/client.js" repo="flamingotiger/blog-comments" issue-term="[ENTER TERM HERE]" theme="github-dark" crossorigin="anonymous" async>
+</script>            
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                    <li>
+                        <a class="social-tooltip" title="envelope" href="mailto:hhbhong@gmail.com" target="_blank" rel="external nofollow noopener noreferrer">
+                            <i class="icon fa fa-envelope"></i>
+                        </a>
+                    </li>
+                
+            
+                
+                    <li>
+                        <a class="social-tooltip" title="share-alt-square" href="https://stackshare.io/flamingotiger/my-stack" target="_blank" rel="external nofollow noopener noreferrer">
+                            <i class="icon fa fa-share-alt-square"></i>
+                        </a>
+                    </li>
+                
+            
+                
+                    <li>
+                        <a class="social-tooltip" title="linkedin" href="https://www.linkedin.com/in/hakbum-hong-ab420a196/" target="_blank" rel="external nofollow noopener noreferrer">
+                            <i class="icon fa fa-linkedin"></i>
+                        </a>
+                    </li>
+                
+            
+                
+                    <li>
+                        <a class="social-tooltip" title="github" href="https://github.com/flamingotiger" target="_blank" rel="external nofollow noopener noreferrer">
+                            <i class="icon fa fa-github"></i>
+                        </a>
+                    </li>
+                
+            
+        </ul>
+    </div>
+    <div id="theme-mode-change">
+        <div class="icon-flex">
+            <div class="mode-icon">
+                <i class="fa fa-moon-o"></i>
+            </div>
+            <label class="switch">
+                <input id="mode-switch" type="checkbox">
+                <span class="slider round"></span>
+            </label>
+            <div class="mode-icon">
+                <i class="fa fa-sun-o"></i>
+            </div>
+        </div>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/frontend/react/gatsby-add-sanity/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Gatsby에서 sanity 서비스 사용하기</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/frontend/vite/vite/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/image/thumb/vite-thumb.jpg)" alt="Vite 사용해보기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/frontend/">frontend</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/frontend/vite/">vite</a></p>
+                            <p class="item-title"><a href="/frontend/vite/vite/" class="title">Vite 사용해보기</a></p>
+                            <p class="item-date"><time datetime="2024-05-01T10:03:55.000Z" itemprop="datePublished">2024-05-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/frontend/react/gatsby-add-sanity/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/image/thumb/gatsby-thumb.jpg)" alt="Gatsby에서 sanity 서비스 사용하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/frontend/">frontend</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/frontend/react/">react</a></p>
+                            <p class="item-title"><a href="/frontend/react/gatsby-add-sanity/" class="title">Gatsby에서 sanity 서비스 사용하기</a></p>
+                            <p class="item-date"><time datetime="2024-03-11T06:20:22.000Z" itemprop="datePublished">2024-03-11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/etc/etc/firebase-cloud-messaging/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/image/thumb/firebase-thumb.jpg)" alt="Firebase Cloud Messaging(FCM) 설정" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/etc/">etc</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/etc/etc/">etc</a></p>
+                            <p class="item-title"><a href="/etc/etc/firebase-cloud-messaging/" class="title">Firebase Cloud Messaging(FCM) 설정</a></p>
+                            <p class="item-date"><time datetime="2024-02-26T13:02:24.000Z" itemprop="datePublished">2024-02-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/frontend/react/gatsby-tailwindcss-setting/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/image/thumb/gatsby-thumb.jpg)" alt="Gatsby에 Tailwindcss 추가하기 (팁 CLI 방법)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/frontend/">frontend</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/frontend/react/">react</a></p>
+                            <p class="item-title"><a href="/frontend/react/gatsby-tailwindcss-setting/" class="title">Gatsby에 Tailwindcss 추가하기 (팁 CLI 방법)</a></p>
+                            <p class="item-date"><time datetime="2024-01-11T11:00:01.000Z" itemprop="datePublished">2024-01-11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/frontend/flutter/flutter-local-notification/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/image/thumb/flutter-thumb.jpg)" alt="flutter local notification 사용하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/frontend/">frontend</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/frontend/flutter/">flutter</a></p>
+                            <p class="item-title"><a href="/frontend/flutter/flutter-local-notification/" class="title">flutter local notification 사용하기</a></p>
+                            <p class="item-date"><time datetime="2023-12-26T07:31:50.000Z" itemprop="datePublished">2023-12-26</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2024 Hong Hakbeom</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+

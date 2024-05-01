@@ -10,10 +10,10 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="react,frontend,axios,redux,create-react-app">
+        <meta name="keywords" content="frontend,react,axios,redux,create-react-app">
     
     <meta name="description" content="시작하기React에서 백엔드와 통신하기 위해서 fetch, axios등을 이용합니다.axios에서 데이터파일 post혹은 get을 지원하지만,request와 response 진행상황에 대한 progress는 지원하지 않습니다.그러기에 axios, react, redux를 이용하여 api의 진행상황을 나타내는 컴포넌트를 만들어 보겠습니다. axiosProgr">
-<meta name="keywords" content="react,frontend,axios,redux,create-react-app">
+<meta name="keywords" content="frontend,react,axios,redux,create-react-app">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Axios get progress (react + redux + axios)">
 <meta property="og:url" content="http://flamingotiger.github.io/frontend/axios/axios-get-progress/index.html">
@@ -96,7 +96,7 @@ ga('send', 'pageview');
                                     <a class="main-nav-list-link" href="/">Home</a>
                                 </li>
                             
-                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Clone/">Clone</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DevTIL/">DevTIL</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DevTIL/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DevTIL/CS/">CS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DevTIL/Study/">Study</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Js-Ts/">Js / Ts</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Js-Ts/javascript/">javascript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Js-Ts/lib/">lib</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Js-Ts/typescript/">typescript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/backend/">backend</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/backend/db/">db</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/backend/devOps/">devOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/backend/node/">node</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/">etc</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/arduino/">arduino</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/etc/">etc</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/google/">google</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/hexo/">hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/rfid/">rfid</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/">frontend</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/DevEnv/">DevEnv</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/ReactNative/">ReactNative</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/Testing/">Testing</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/d3/">d3</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/flutter/">flutter</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/html5/">html5</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/react/">react</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/svg/">svg</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/style/">style</a></li></ul>
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Clone/">Clone</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DevTIL/">DevTIL</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DevTIL/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DevTIL/CS/">CS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DevTIL/Study/">Study</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Js-Ts/">Js / Ts</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Js-Ts/javascript/">javascript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Js-Ts/lib/">lib</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Js-Ts/typescript/">typescript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/backend/">backend</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/backend/db/">db</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/backend/devOps/">devOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/backend/node/">node</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/">etc</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/arduino/">arduino</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/etc/">etc</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/google/">google</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/hexo/">hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/rfid/">rfid</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/">frontend</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/DevEnv/">DevEnv</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/ReactNative/">ReactNative</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/Testing/">Testing</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/d3/">d3</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/flutter/">flutter</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/html5/">html5</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/react/">react</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/svg/">svg</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/frontend/vite/">vite</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/style/">style</a></li></ul>
                                     
                         </ul>
                         <nav id="sub-nav">
@@ -234,7 +234,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="http://flamingotiger.github.io/frontend/axios/axios-get-progress/" data-id="cluie8xoa008sf9tm6eob4i7y" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://flamingotiger.github.io/frontend/axios/axios-get-progress/" data-id="clvnno9qp008uhbtm9d4vf59l" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -306,7 +306,7 @@ ga('send', 'pageview');
         },
         "headline": "Axios get progress (react + redux + axios)",
         "image": "http://flamingotiger.github.io/image/thumb/axios-thumb.jpg",
-        "keywords": "react frontend axios redux create-react-app",
+        "keywords": "frontend react axios redux create-react-app",
         "genre": "frontend react",
         "datePublished": "2019-12-14",
         "dateCreated": "2019-12-14",
@@ -424,6 +424,26 @@ axiosProgr",
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/frontend/vite/vite/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/image/thumb/vite-thumb.jpg)" alt="Vite 사용해보기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/frontend/">frontend</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/frontend/vite/">vite</a></p>
+                            <p class="item-title"><a href="/frontend/vite/vite/" class="title">Vite 사용해보기</a></p>
+                            <p class="item-date"><time datetime="2024-05-01T10:03:55.000Z" itemprop="datePublished">2024-05-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/frontend/react/gatsby-add-sanity/" class="thumbnail">
     
     
@@ -498,26 +518,6 @@ axiosProgr",
                             <p class="item-category"><a class="article-category-link" href="/categories/frontend/">frontend</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/frontend/flutter/">flutter</a></p>
                             <p class="item-title"><a href="/frontend/flutter/flutter-local-notification/" class="title">flutter local notification 사용하기</a></p>
                             <p class="item-date"><time datetime="2023-12-26T07:31:50.000Z" itemprop="datePublished">2023-12-26</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/frontend/flutter/flutter-splash-screen/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/image/thumb/flutter-thumb.jpg)" alt="flutter splash screen과 app icon 설정" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/frontend/">frontend</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/frontend/flutter/">flutter</a></p>
-                            <p class="item-title"><a href="/frontend/flutter/flutter-splash-screen/" class="title">flutter splash screen과 app icon 설정</a></p>
-                            <p class="item-date"><time datetime="2023-12-23T07:31:50.000Z" itemprop="datePublished">2023-12-23</time></p>
                         </div>
                     </li>
                 
